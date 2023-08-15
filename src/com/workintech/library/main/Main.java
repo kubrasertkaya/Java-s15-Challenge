@@ -56,21 +56,18 @@ public class Main {
         String phoneNumber = s.next();
         System.out.println("Enter email:");
         String email = s.next();
-        Role defaultRole = Role.NormalUser;
-        User newUser = new User(name, phoneNumber, email, defaultRole);
-
-        //System.out.println("1. Admin\n2. Normal User");
-        //int n2 = s.nextInt();
+        System.out.println("1. Admin\n2. Normal User");
+        int n2 = s.nextInt();
         User user;
-        //if (n2 == 1) {
-          //  user = new Admin(name, email, phoneNumber);
+        if (n2 == 1) {
+           user = new Admin(name, email, phoneNumber);
 
-        //} else {
-           //user = new NormalUser(name, email, phoneNumber);
+        } else {
+           user = new NormalUser(name, email, phoneNumber);
 
-        //}
-        databases.AddUser(newUser);
-        newUser.menu();
+        }
+        databases.AddUser(user);
+        user.menu();
     }
 }
 
