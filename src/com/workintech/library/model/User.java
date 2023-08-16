@@ -6,7 +6,7 @@ public class User {
     protected String email;
     protected String phoneNumber;
 
-    protected  String role;
+
 
     protected  Operatable[] operations;
 
@@ -20,8 +20,7 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public User(String name, String phoneNumber, String email, Role defaultRole) {
-    }
+
 
 
     public String getName() {
@@ -36,7 +35,7 @@ public class User {
         return phoneNumber;
     }
 
-     public void menu(){
+     public void menu(Databases databases,User user){
          System.out.println("Here will be printed options.");
 
      }

@@ -4,7 +4,7 @@ public class AddBook implements Operatable{
 
 
     @Override
-    public void oper() {
+    public void oper(Databases databases,User user) {
 
     }
 }
