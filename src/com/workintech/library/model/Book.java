@@ -1,26 +1,31 @@
 package com.workintech.library.model;
 
 public class Book {
+    private int id;
     private String name;   //title
     private String author;  //author
     private String publisher; //publisher
     private String adress; //Collection location
-    private String  status; //Borrowing status
-    private  int qty;   //Copies for sale
+    private BookStatus  status; //Borrowing status
+
+    private User owner;
+
     private double price;// price
     private int brwcopies; //Copies for borrowing
 
     public Book (){};
 
-    public Book(String name, String author, String publisher, String adress, String status, int qty, double price, int brwcopies) {
+    public Book(String name, String author, String publisher, String adress, BookStatus status, double price, int brwcopies,
+                int id) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
         this.adress = adress;
         this.status = status;
-        this.qty = qty;
         this.price = price;
         this.brwcopies = brwcopies;
+        this.id=id;
+        this.owner=null;
     }
 
     @Override
@@ -30,7 +35,7 @@ public class Book {
                 "Book Publisher:" + publisher+
                 "Book Collection  Adress:" + adress +
                 "Book Status:" + status +
-                "Qty:"+ String.valueOf(qty)+
+                "id:"+ String.valueOf(id)+
                 "Price:"+ String.valueOf(price) +
                 "Borrowing Copies:" + String.valueOf(brwcopies);
         return  text;
@@ -70,20 +75,13 @@ public class Book {
         this.adress = adress;
     }
 
-    public String getStatus() {
+
+    public BookStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(BookStatus status) {
         this.status = status;
-    }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public void setQty(int qty) {
-        this.qty = qty;
     }
 
     public double getPrice() {
@@ -101,4 +99,28 @@ public class Book {
     public void setBrwcopies(int brwcopies) {
         this.brwcopies = brwcopies;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public String toString2(){
+        String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+adress+"<N/>"+String.valueOf(id)+
+                "<N/>"+String.valueOf(price)+"<N/>"+String.valueOf(brwcopies);
+        return text;
+    }
+
+
 }

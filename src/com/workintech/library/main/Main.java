@@ -23,7 +23,9 @@ public class Main {
                     + " 1.Login\n 2.New User");
             s = new Scanner(System.in);
              num = s.nextInt();
-
+             if(num<0 || num>2){
+                 System.out.println("num must be between 0 and 2");
+             }
             switch (num) {
                 case 1:
                     login();

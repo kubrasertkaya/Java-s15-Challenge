@@ -35,7 +35,7 @@ public class User {
         return phoneNumber;
     }
 
-     public void menu(Databases databases,User user){
+     public void menu(Library library,User user){
          System.out.println("Here will be printed options.");
 
      }
