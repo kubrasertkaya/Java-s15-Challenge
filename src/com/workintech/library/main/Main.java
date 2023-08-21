@@ -11,29 +11,22 @@ public class Main {
 
     static Scanner s;
     static Databases databases;
+    static Library library;
 
     public static  void main(String[] args) {
 
         databases = new Databases();
 
-          int num;
-       // do {
-            System.out.println("Welcome to Library Management System!\n"
-                    + " 0.Exit\n"
-                    + " 1.Login\n 2.New User");
-            s = new Scanner(System.in);
-             num = s.nextInt();
-             if(num<0 || num>2){
-                 System.out.println("num must be between 0 and 2");
-             }
-            switch (num) {
-                case 1:
-                    login();
-                case 2:
-                    newUser();
+        Admin user=new Admin("Kübra");
+        user.setEmail("haticekubrasertkaya@gmail.com");
+        user.setPhoneNumber("5352321292");
+        databases.AddUser(user);
 
-            }
-       // } while (num != 0);
+        library=new Library();
+
+        loginMenu();
+
+
     }
 
     private static void login() {
@@ -44,7 +37,7 @@ public class Main {
         int n = databases.login(phoneNumber, email);
         if (n != -1) {
             User user = databases.getUser(n);
-            user.menu(databases,user);
+            menu(user);
         } else {
             System.out.println("User doesn't exist!");
         }
@@ -62,14 +55,48 @@ public class Main {
         int n2 = s.nextInt();
         User user;
         if (n2 == 1) {
-           user = new Admin(name, email, phoneNumber);
+           user = new Admin(name, email, phoneNumber,0);
 
         } else {
-           user = new NormalUser(name, email, phoneNumber);
+           user = new NormalUser(name, email, phoneNumber,0);
 
         }
         databases.AddUser(user);
-        user.menu( databases,user);
+        menu(user);
+    }
+
+    public  static void menu(User user){
+
+       int a= user.menu(library,user,databases);
+       if(a==0){
+           loginMenu();
+       }else if(a==1){
+           menu(user);
+
+       }
+
+
+    }
+
+    public  static  void loginMenu(){
+        int num;
+
+        System.out.println("Welcome to Library Management System!\n"
+                + " 0.Exit\n"
+                + " 1.Login\n 2.New User");
+        s = new Scanner(System.in);
+        num = s.nextInt();
+        if(num<0 || num>2){
+            System.out.println("num must be between 0 and 2");
+        }
+        switch (num) {
+            case 1:
+                login();
+            case 2:
+                newUser();
+
+        }
+
     }
 }
 

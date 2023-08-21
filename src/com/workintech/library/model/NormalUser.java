@@ -13,12 +13,13 @@ public class NormalUser extends User{
                 new BarrowBook(),
                 new CalculateFine(),
                 new ReturnBook(),
-                new Exit()
+                new ViewBooks()
+
         };
     }
 
-    public NormalUser(String name, String email, String phoneNumber) {
-        super(name, email, phoneNumber);
+    public NormalUser(String name, String email, String phoneNumber,int id) {
+        super(name, email, phoneNumber,id);
         this.operations=new Operatable[]{
                 new ViewBook(),
                 new Search(),
@@ -26,23 +27,32 @@ public class NormalUser extends User{
                 new BarrowBook(),
                 new CalculateFine(),
                 new ReturnBook(),
-                new Exit()
+                new ViewBooks()
+
         };
     }
 
     @Override
-    public void menu(Library library,User user) {
+    public int menu(Library library,User user,Databases databases) {
         System.out.println("1. View Books");
         System.out.println("2. Search");
         System.out.println("3. Place Order");
         System.out.println("4. Borrow Book");
         System.out.println("5. Calculate Fine");
         System.out.println("6. Return Book");
-        System.out.println("7. Exit");
+        System.out.println("7.View Books");
+        System.out.println("8. Exit");
 
         Scanner s=new Scanner(System.in);
         int n=s.nextInt();
-        //this.operations[n-1].oper(, user);
+
+        if(n==8){
+            return 0;
+        }else{
+            this.operations[n-1].oper(library, user,databases);
+            return 1;
+
+        }
 
     }
 

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DeleteBook implements Operatable{
     @Override
-    public void oper(Library library,User user) {
+    public void oper(Library library,User user,Databases databases) {
 
         int num;
 

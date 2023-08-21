@@ -7,7 +7,7 @@ public class AddBook implements Operatable{
 
 
     @Override
-    public void oper(Library library,User user) {
+    public void oper(Library library,User user,Databases databases) {
 
         Scanner s=new Scanner(System.in);
         Book book =new Book();
@@ -26,7 +26,7 @@ public class AddBook implements Operatable{
         s.close();
         library.addBook(book);
         System.out.println("Book added succesfully\n");
-        user.menu(library,user);
+        user.menu(library,user,databases);
 
 
 

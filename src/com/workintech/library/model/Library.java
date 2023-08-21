@@ -1,11 +1,12 @@
 package com.workintech.library.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Library {
     private static ArrayList<Book> books=new ArrayList<>();
     private static int lastBookId;
-    public static void main(String[] args) {
+    public  Library() {
         lastBookId=0;
         Book book1=new Book();
         book1.setName("Yüzbaşının Kızı");
@@ -14,10 +15,10 @@ public class Library {
         book1.setPrice(3.0);
         addBook(book1);
         Book book2=new Book();
-        book1.setName("Lavinia");
-        book1.setAuthor("ÖZDEMİR ASAF");
-        book1.setPublisher("Yeryüzü Yayınevi");
-        book1.setPrice(3.0);
+        book2.setName("Lavinia");
+        book2.setAuthor("ÖZDEMİR ASAF");
+        book2.setPublisher("Yeryüzü Yayınevi");
+        book2.setPrice(3.0);
         addBook(book2);
 
 
@@ -57,6 +58,20 @@ public class Library {
         }
         System.out.println("Aranılan kitap bulunamadı");
         return null;
+    }
+
+    public static ArrayList<Book> getBookListByName(String name){
+        ArrayList<Book> list= new ArrayList<>();
+        for(Book book:books) {
+            if (book.getName().equals(name)) {
+                list.add(book);
+            }
+        }
+        return list;
+    }
+
+    public static ArrayList<Book> getAllBooks(){
+        return books;
     }
 
 

@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class BarrowBook implements Operatable{
     @Override
-    public void oper(Library library,User user) {
+    public void oper(Library library,User user,Databases databases) {
         System.out.println("Ödünç almak istediğiniz kitabın id sini giriniz.");
 
         int num;
         Scanner s =new Scanner(System.in);
         num=s.nextInt();
+        System.out.println(num);
         Book book =library.getBookWithId(num);
         if(book==null){
             System.out.println("Kitap mevcut değildir.");
