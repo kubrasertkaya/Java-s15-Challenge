@@ -1,4 +1,4 @@
-package com.workintech.library.model;
+package com.workintech.library.enums;
 
 public enum BookStatus {
     ALINMIŞ,

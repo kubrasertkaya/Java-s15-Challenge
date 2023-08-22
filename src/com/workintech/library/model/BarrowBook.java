@@ -1,5 +1,7 @@
 package com.workintech.library.model;
 
+import com.workintech.library.enums.BookStatus;
+
 import java.util.Scanner;
 
 public class BarrowBook implements Operatable{
@@ -16,7 +18,7 @@ public class BarrowBook implements Operatable{
             System.out.println("Kitap mevcut değildir.");
             return;
         }
-        if(book.getStatus()==BookStatus.ALINMIŞ){
+        if(book.getStatus()== BookStatus.ALINMIŞ){
             System.out.println("Kitap alınmıştır.");
             return;
         }

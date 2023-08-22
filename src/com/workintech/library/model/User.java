@@ -1,5 +1,7 @@
 package com.workintech.library.model;
 
+import java.util.ArrayList;
+
 public class User {
 
     protected String name;
@@ -7,6 +9,8 @@ public class User {
     protected String phoneNumber;
 
     protected int id;
+
+
 
 
 
@@ -21,6 +25,7 @@ public class User {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.id=id;
+
     }
 
 
@@ -62,9 +67,15 @@ public class User {
         this.id = id;
     }
 
-    public int menu(Library library, User user,Databases databases){
+
+
+
+
+    public int menu(Library library, User user, Databases databases){
          System.out.println("Here will be printed options.");
          return -1;
 
      }
+
+
 }

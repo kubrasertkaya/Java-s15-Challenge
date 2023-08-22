@@ -1,5 +1,7 @@
 package com.workintech.library.model;
 
+import com.workintech.library.enums.BookType;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -18,11 +20,9 @@ public class AddBook implements Operatable{
         System.out.println("Enter book publisher: ");
         book.setPublisher(s.next());
         System.out.println("Enter book collection adress: ");
-        book.setAdress(s.next());
+        book.setType(BookType.valueOf(s.next()));
         System.out.println("Enter book price: ");
         book.setPrice(s.nextDouble());
-        System.out.println("Enter borrowing copies: ");
-        book.setBrwcopies(s.nextInt());
         s.close();
         library.addBook(book);
         System.out.println("Book added succesfully\n");

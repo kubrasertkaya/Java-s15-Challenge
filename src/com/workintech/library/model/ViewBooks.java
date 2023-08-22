@@ -1,5 +1,7 @@
 package com.workintech.library.model;
 
+import com.workintech.library.enums.BookStatus;
+
 import java.util.ArrayList;
 
 public class ViewBooks implements Operatable{
@@ -13,7 +15,7 @@ public class ViewBooks implements Operatable{
            name=book.getName();
            id= Integer.toString(book.getId());
 
-           if(book.getStatus()==BookStatus.ALINMIŞ){
+           if(book.getStatus()== BookStatus.ALINMIŞ){
                status="Alınmış.";
            }else{
                status="Alınmamış";

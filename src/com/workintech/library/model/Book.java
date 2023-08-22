@@ -1,30 +1,33 @@
 package com.workintech.library.model;
 
+import com.workintech.library.enums.BookStatus;
+import com.workintech.library.enums.BookType;
+
 public class Book {
     private int id;
     private String name;   //title
     private String author;  //author
     private String publisher; //publisher
-    private String adress; //Collection location
-    private BookStatus  status; //Borrowing status
+    private BookType type;
+    private BookStatus status; //Borrowing status
 
     private User owner;
 
     private double price;// price
-    private int brwcopies; //Copies for borrowing
+
+
+
 
     public Book (){};
 
-    public Book(String name, String author, String publisher, String adress, BookStatus status, double price, int brwcopies,
-                int id) {
+    public Book(String name, String author, String publisher, BookType type, BookStatus status, double price )
+    {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
-        this.adress = adress;
+        this.type=type;
         this.status = status;
         this.price = price;
-        this.brwcopies = brwcopies;
-        this.id=id;
         this.owner=null;
     }
 
@@ -33,11 +36,11 @@ public class Book {
         String text="Book Name: "+ name+
                 "Book Author: "+ author +
                 "Book Publisher:" + publisher+
-                "Book Collection  Adress:" + adress +
+                "Book Collection  Adress:" + type.toString() +
                 "Book Status:" + status +
                 "id:"+ String.valueOf(id)+
-                "Price:"+ String.valueOf(price) +
-                "Borrowing Copies:" + String.valueOf(brwcopies);
+                "Price:"+ String.valueOf(price);
+
         return  text;
 
 
@@ -67,14 +70,13 @@ public class Book {
         this.publisher = publisher;
     }
 
-    public String getAdress() {
-        return adress;
+    public BookType getType() {
+        return type;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setType(BookType type) {
+        this.type = type;
     }
-
 
     public BookStatus getStatus() {
         return status;
@@ -92,13 +94,6 @@ public class Book {
         this.price = price;
     }
 
-    public int getBrwcopies() {
-        return brwcopies;
-    }
-
-    public void setBrwcopies(int brwcopies) {
-        this.brwcopies = brwcopies;
-    }
 
     public int getId() {
         return id;
@@ -117,8 +112,8 @@ public class Book {
     }
 
     public String toString2(){
-        String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+adress+"<N/>"+String.valueOf(id)+
-                "<N/>"+String.valueOf(price)+"<N/>"+String.valueOf(brwcopies);
+        String text = name+"<N/>"+author+"<N/>"+publisher+"<N/>"+type.toString()+"<N/>"+String.valueOf(id)+
+                "<N/>"+String.valueOf(price)+"<N/>";
         return text;
     }
 

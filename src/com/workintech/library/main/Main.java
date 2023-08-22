@@ -2,6 +2,7 @@ package com.workintech.library.main;
 
 import com.workintech.library.model.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -17,9 +18,8 @@ public class Main {
 
         databases = new Databases();
 
-        Admin user=new Admin("Kübra");
-        user.setEmail("haticekubrasertkaya@gmail.com");
-        user.setPhoneNumber("5352321292");
+        Admin user=new Admin("Kübra","haticekubrasertkaya@gmail.com","5352321292",0);
+
         databases.AddUser(user);
 
         library=new Library();
@@ -58,7 +58,7 @@ public class Main {
            user = new Admin(name, email, phoneNumber,0);
 
         } else {
-           user = new NormalUser(name, email, phoneNumber,0);
+           user = new NormalUser(name, email, phoneNumber,0,  new ArrayList<Book>());
 
         }
         databases.AddUser(user);
