@@ -20,6 +20,8 @@ public class Admin extends User {
                 new ViewOrders(),
                 new ViewBooks(),
                 new UpdateBook(),
+                new ViewByAuthor(),
+                new ViewByType(),
                 new Exit()
 
         };
@@ -35,13 +37,14 @@ public class Admin extends User {
         System.out.println("5. View Orders");
         System.out.println("6.View Books");
         System.out.println("7.Update Book");
-        System.out.println("8. Exit");
+        System.out.println("8.View By Author");
+        System.out.println("9.View Book By Type");
+        System.out.println("10. Exit");
 
         Scanner s=new Scanner(System.in);
         int n=s.nextInt();
-        s.close();
         this.operations[n-1].oper(library, user,databases);
-        if(n==8){
+        if(n==10){
             return 0;
         }else{
             return 1;

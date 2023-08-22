@@ -28,7 +28,7 @@ public class UpdateBook implements Operatable{
         book.setType(BookType.valueOf(s.next()));
         System.out.println("Enter book price: ");
         book.setPrice(s.nextDouble());
-        s.close();
+
 
         System.out.println("Kitap bilgileri güncellendi."+ book.toString());
     }

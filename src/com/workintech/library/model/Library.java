@@ -100,4 +100,14 @@ public class Library {
         }
         return list;
     }
+
+    public static ArrayList<Book> getBookListByAuthor(String name){
+        ArrayList<Book> list= new ArrayList<>();
+        for(Book book:books) {
+            if (book.getAuthor().equals(name)) {
+                list.add(book);
+            }
+        }
+        return list;
+    }
 }

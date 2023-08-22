@@ -21,6 +21,8 @@ public class NormalUser extends User{
                 new ViewBooks(),
                 new ViewCart(),
                 new ConfirmCart(),
+                new ViewByType(),
+                new ViewByAuthor(),
                 new Exit()
 
         };
@@ -28,7 +30,7 @@ public class NormalUser extends User{
 
     @Override
     public int menu(Library library,User user,Databases databases) {
-        System.out.println("1. View Books");
+        System.out.println("1. View Book");
         System.out.println("2. Add To Cart");
         System.out.println("3. Borrow Book");
         System.out.println("4. Calculate Fine");
@@ -36,13 +38,15 @@ public class NormalUser extends User{
         System.out.println("6.View Books");
         System.out.println("7.View Cart");
         System.out.println("8.Confirm Cart");
-        System.out.println("9. Exit");
+        System.out.println("9.View Book By Type");
+        System.out.println("10.View By Author");
+        System.out.println("11. Exit");
 
 
         Scanner s=new Scanner(System.in);
         int n=s.nextInt();
         this.operations[n-1].oper(library, user,databases);
-        if(n==9){
+        if(n==11){
             return 0;
         }else{
             return 1;

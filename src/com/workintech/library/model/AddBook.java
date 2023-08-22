@@ -23,7 +23,6 @@ public class AddBook implements Operatable{
         book.setType(BookType.valueOf(s.next()));
         System.out.println("Enter book price: ");
         book.setPrice(s.nextDouble());
-        s.close();
         library.addBook(book);
         System.out.println("Book added succesfully\n");
         user.menu(library,user,databases);
