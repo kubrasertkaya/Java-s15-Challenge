@@ -19,11 +19,17 @@ public class BarrowBook implements Operatable{
             return;
         }
         if(book.getStatus()== BookStatus.ALINMIŞ){
-            System.out.println("Kitap alınmıştır.");
+            System.out.println("Kitap alınmıştır." + book.getOwner().getName());
+            return;
+        }
+        if(((NormalUser) user).getBorrowedbooks().size()==5){
+            System.out.println("Kitap alım limitine ulaştınız.");
             return;
         }
         book.setOwner(user);
+        ((NormalUser) user).addBarrowedBook(book);
         book.setStatus(BookStatus.ALINMIŞ);
         System.out.println("Kitap ödünç verildi.");
+        System.out.println( Double.toString(book.getPrice()/2) + "TL alındı." );
     }
 }

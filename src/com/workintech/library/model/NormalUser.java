@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class NormalUser extends User{
 
     protected ArrayList<Book> cart;
+    protected  ArrayList<Book> borrowedbooks=new ArrayList<Book>();
 
 
     public NormalUser(String name, String email, String phoneNumber,int id,ArrayList<Book> cart) {
@@ -71,8 +72,27 @@ public class NormalUser extends User{
         cart.clear();
     }
 
+    public ArrayList<Book> getBorrowedbooks() {
+        return borrowedbooks;
+    }
+
+    public void setBorrowedbooks(ArrayList<Book> borrowedbooks) {
+        this.borrowedbooks = borrowedbooks;
+    }
+
     @Override
     public String toString() {
         return name + "<N/>"+ email + "<N/>" + phoneNumber + "<N/>" + "Normal";
     }
+
+    public void addBarrowedBook(Book book){
+        borrowedbooks.add(book);
+
+    }
+
+    public void  removedBarrowBook(Book book){
+        borrowedbooks.remove(borrowedbooks.indexOf(book));
+    }
 }
+
+

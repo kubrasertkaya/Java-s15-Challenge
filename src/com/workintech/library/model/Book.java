@@ -33,13 +33,16 @@ public class Book {
 
     @Override
     public String toString() {
+
         String text="Book Name: "+ name+
                 "Book Author: "+ author +
                 "Book Publisher:" + publisher+
                 "Book Collection  Adress:" + type.toString() +
                 "Book Status:" + status +
                 "id:"+ String.valueOf(id)+
-                "Price:"+ String.valueOf(price);
+                "Price:"+ String.valueOf(price) +
+                "Owner:"+ ((owner == null) ? " " : owner.getName());
+
 
         return  text;
 
